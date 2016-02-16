@@ -1,0 +1,8 @@
+<h1>Kanye Today</h1>
+<h4>Tweets: <%= @tweets.count %></h4>
+
+<div class="jumbotron">
+    <% @tweets.each do |tweet| %>
+        <h3><%= tweet.text %></h3>
+    <% end %>
+</div>
