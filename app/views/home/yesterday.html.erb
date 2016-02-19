@@ -17,9 +17,15 @@
                 </div>
             <% end %>
         </div>
-        <div class="col-md-6">
-            <h3>Yesterday's Top Tweet With <%= @top_tweet.favorite_count %> Favorites is...</h3>
-            <p>"<%= @top_tweet.text %>"</p>
+        <div class="col-md-6 top-tweet">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h5>Today's Top Tweet With <%= @top_tweet.favorite_count %> Favorites is...</h5>
+              </div>
+              <div class="panel-body">
+                <p>"<%= @top_tweet.text %>"</p>
+              </div>
+            </div>
             <%= high_chart("ye_chart", @chart) %>
         </div>
     </div>
