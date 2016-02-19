@@ -1,13 +1,14 @@
 <div class="row kanye-header">
-    <h1 class="kanye-title pull-left">Kanye Today</h1>
-    <h1><%= link_to "Ye'sterday", :yesterday, :class => "yesterday-link pull-right" %></h1> 
+    <h1 class="kanye-title pull-left">Kanye Yesterday</h1>
+    <h1><%= link_to "Today", :root, :class => "yesterday-link pull-right" %></h1> 
 </div>
+
 <% if !@tweets.empty? %>
     <div class="row">
         <div class="col-md-6">
             <h1>Today's Feed</h1>
             <% @tweets.each do |tweet| %>
-                <div class="tweet"> 
+                <div class="tweet">
                     <% if tweet.media? %>
                         <img src="<%= tweet.media[0].media_url %>" class="tweet-media">
                     <% end %>
@@ -16,20 +17,13 @@
                 </div>
             <% end %>
         </div>
-        <div class="col-md-6 top-tweet">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h5>Today's Top Tweet With <%= @top_tweet.favorite_count %> Favorites is...</h5>
-              </div>
-              <div class="panel-body">
-                <p>"<%= @top_tweet.text %>"</p>
-              </div>
-            </div>
+        <div class="col-md-6">
+            <h3>Yesterday's Top Tweet With <%= @top_tweet.favorite_count %> Favorites is...</h3>
+            <p>"<%= @top_tweet.text %>"</p>
             <%= high_chart("ye_chart", @chart) %>
         </div>
     </div>
     
 <% else %>
-    <h1 class="no-tweets">NO TWEETS TODAY :(</h1>
+    <h1 class="no-tweets">NO TWEETS YESTERDAY :(</h1>
 <% end %>
-

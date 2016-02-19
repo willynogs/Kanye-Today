@@ -1,0 +1,48 @@
+@font-face {
+  font-family:'VCR_OSD_MONO_1';
+  src: font_url('VCR_OSD_MONO_1.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} 
+
+body {
+    background-color: #F58B57;
+    color: #000000;
+}
+
+.kanye-header {
+    padding: 0 0 20px 0;
+    border-bottom: 2px solid #000000;
+}
+
+.yesterday-link {
+    font-family: 'Pacifico', cursive !important;
+}
+
+.kanye-title {
+    font-family: 'Pacifico', cursive !important;
+}
+
+p {
+}
+
+.no-tweets {
+    text-align: center;
+}
+
+.tweet {
+    border-bottom: 2px solid #000000;
+    padding: 0 0 10px 0;
+}
+
+.tweet-media {
+    width: auto;
+    height: 200px;
+    padding: 20px 0 0 0;
+}
+
+.top-tweet {
+    margin: 25px 0 0 0;
+}
+
+
