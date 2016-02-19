@@ -1,3 +1,3 @@
-#Twitter API in Ruby on Rails
+#Kanye Today
 
-Using the Twitter API to search through tweets of Kanye West
+Using the Twitter API to analyzes today's tweets from Kanye West
