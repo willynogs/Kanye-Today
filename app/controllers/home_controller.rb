@@ -9,13 +9,14 @@ class HomeController < ApplicationController
     #hash for each word in tweets w/ value number of occurences 
     @word_counts = {}
     #gets the last 200 tweets from Kanye
-    tweets_init = @client.user_timeline("kanyewest", count: 200, include_entities: true) 
+    tweets_init = @client.user_timeline("kanyewest", count: 200, include_entities: true)
     #if tweets were created today, the tweets are added to the @tweets array
     tweets_init.each do |tweet|
         @tweets << tweet if tweet.created_at.today?
     end
     #@word_counts is filled with all words and number of occurences, @top_tweet is filled with the tweet with the most favorites
     @tweets.each do |tweet|
+      puts tweet
       count_words(tweet, @word_counts)
       @top_tweet = tweet if @top_tweet.blank? || @top_tweet.favorite_count < tweet.favorite_count
     end
@@ -72,7 +73,7 @@ class HomeController < ApplicationController
   end
   
   def count_words(string, hash)
-    black_list = ['the', 'a', 'of', 'on', 'with', 'got', 'to', 'and', 'that', 'do', 'some', 'be', 'is', 'been', 'one', 'by']
+    black_list = ['the', 'a', 'of', 'on', 'with', 'got', 'to', 'and', 'that', 'do', 'some', 'be', 'is', 'been', 'one', 'by', "i'm", 'have', 'for']
     arr = string.text.downcase.split(' ')
     
     arr.each do |word|
