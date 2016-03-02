@@ -12,6 +12,6 @@ test:
 
 production:
   adapter: postgresql
-  database: treebook
+  database: kanye
   pool: 5
   timeout: 5000

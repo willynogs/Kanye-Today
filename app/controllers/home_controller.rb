@@ -4,11 +4,7 @@ class HomeController < ApplicationController
   def index
     init_general
     init_today
-    #@word_counts is filled with all words and number of occurences, @top_tweet is filled with the tweet with the most favorites
-    @tweets.each do |tweet|
-      count_words(tweet, @word_counts)
-      @top_tweet = tweet if @top_tweet.blank? || @top_tweet.favorite_count < tweet.favorite_count
-    end
+    tweet_count
     #sorts the hash by value (number of occurences)
     sorted = @word_counts.sort_by {|_key, value| value}
     #makes the hash an array of arrays and reverses it
@@ -29,11 +25,7 @@ class HomeController < ApplicationController
   def yesterday
     init_general
     init_yesterday
-    #@word_counts is filled with all words and number of occurences, @top_tweet is filled with the tweet with the most favorites
-    @tweets.each do |tweet|
-      count_words(tweet, @word_counts)
-      @top_tweet = tweet if @top_tweet.blank? || @top_tweet.favorite_count < tweet.favorite_count
-    end
+    tweet_count
     #sorts the hash by value (number of occurences)
     sorted = @word_counts.sort_by {|_key, value| value}
     #makes the hash an array of arrays and reverses it
@@ -49,6 +41,14 @@ class HomeController < ApplicationController
     end
     #a chart is made with the top 5 most used words and occurences
     make_chart(cat, data)
+  end
+  
+  def tweet_count
+    #@word_counts is filled with all words and number of occurences, @top_tweet is filled with the tweet with the most favorites
+    @tweets.each do |tweet|
+      count_words(tweet, @word_counts)
+      @top_tweet = tweet if @top_tweet.blank? || @top_tweet.favorite_count < tweet.favorite_count
+    end
   end
   
   def init_general
